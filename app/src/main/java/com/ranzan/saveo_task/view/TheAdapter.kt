@@ -29,17 +29,15 @@ class TheAdapter(
     class TheViewHolder(private val view: View, private val itemClickListener: ItemClickListener) :
         RecyclerView.ViewHolder(view) {
         fun setData(resultsItem: ResultsItem) {
-            Glide.with(view.backDropImage)
-                .load("https://image.tmdb.org/t/p/w500${resultsItem.backdropPath}")
+            Glide.with(view.backDropImage).load("https://image.tmdb.org/t/p/w500${resultsItem.backdropPath}")
                 .placeholder(R.drawable.image_placeholder).into(view.backDropImage)
-            Glide.with(view.posterImage)
-                .load("https://image.tmdb.org/t/p/w500${resultsItem.posterPath}")
+
+            Glide.with(view.posterImage).load("https://image.tmdb.org/t/p/w500${resultsItem.posterPath}")
                 .into(view.posterImage)
 
             view.layout.setOnClickListener {
                 itemClickListener.onItemClick(resultsItem)
             }
-
         }
     }
 }
