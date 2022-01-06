@@ -1,20 +1,20 @@
-package com.ranzan.saveo_task.model
+package com.ranzan.saveo_task.model.api
 
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 data class ResponseModel(
 
-	@field:SerializedName("page")
+    @field:SerializedName("page")
 	val page: Int? = null,
 
-	@field:SerializedName("total_pages")
+    @field:SerializedName("total_pages")
 	val totalPages: Int? = null,
 
-	@field:SerializedName("results")
+    @field:SerializedName("results")
 	val results: List<ResultsItem?>? = null,
 
-	@field:SerializedName("total_results")
+    @field:SerializedName("total_results")
 	val totalResults: Int? = null
 )
 

@@ -1,4 +1,4 @@
-package com.ranzan.saveo_task.view
+package com.ranzan.saveo_task.view.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.ranzan.saveo_task.R
-import com.ranzan.saveo_task.model.ResultsItem
+import com.ranzan.saveo_task.model.api.ResultsItem
 import kotlinx.android.synthetic.main.item_layout.view.*
 
 class UpcomingAdapter(

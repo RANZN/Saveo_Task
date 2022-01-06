@@ -1,9 +1,8 @@
-package com.ranzan.saveo_task.pagination
+package com.ranzan.saveo_task.model.api
 
+import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.ranzan.saveo_task.model.Network
-import com.ranzan.saveo_task.model.ResultsItem
 
 class MoviePagingSource : PagingSource<Int, ResultsItem>() {
     override fun getRefreshKey(state: PagingState<Int, ResultsItem>): Int? {

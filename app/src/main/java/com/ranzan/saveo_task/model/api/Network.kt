@@ -1,4 +1,4 @@
-package com.ranzan.saveo_task.model
+package com.ranzan.saveo_task.model.api
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
