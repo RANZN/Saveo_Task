@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity(), ItemClickListener {
 
     private fun setViewPager() {
         viewModel.getUpcomingMovie().observe(this, {
-            viewPager.adapter = TheAdapter(it as ArrayList<ResultsItem>, this)
+            viewPager.adapter = UpcomingAdapter(it as ArrayList<ResultsItem>, this)
         })
     }
 
