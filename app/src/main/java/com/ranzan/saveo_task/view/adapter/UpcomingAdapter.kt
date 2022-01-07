@@ -9,12 +9,8 @@ import com.ranzan.saveo_task.R
 import com.ranzan.saveo_task.model.api.ResultsItem
 import kotlinx.android.synthetic.main.item_layout.view.*
 
-class UpcomingAdapter(
-    private val list: ArrayList<ResultsItem>,
-    private val itemClickListener: ItemClickListener
-) :
+class UpcomingAdapter(private val list: ArrayList<ResultsItem>, private val itemClickListener: ItemClickListener) :
     RecyclerView.Adapter<UpcomingAdapter.UpcomingViewHolder>() {
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UpcomingViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_layout, parent, false)
         return UpcomingViewHolder(view, itemClickListener)

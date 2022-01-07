@@ -11,7 +11,6 @@ class MoviePagingSource : PagingSource<Int, ResultsItem>() {
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, ResultsItem> {
         val pageNumber = params.key ?: 1
-
         val responseModel = Network.apiService.getPopularMovie(pageNumber)
         val dataList: List<ResultsItem> = responseModel.results as List<ResultsItem>
         return try {

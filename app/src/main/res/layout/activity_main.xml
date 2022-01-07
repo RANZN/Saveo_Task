@@ -55,9 +55,9 @@
                 android:id="@+id/viewPager"
                 android:layout_width="match_parent"
                 android:layout_marginTop="10dp"
-                android:paddingStart="70dp"
                 android:layout_height="350dp"
-                android:paddingEnd="70dp" />
+                android:paddingStart="40dp"
+                android:paddingEnd="40dp" />
 
             <TextView
                 android:id="@+id/nowShowing"

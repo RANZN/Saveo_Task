@@ -31,12 +31,15 @@ class MainActivity : AppCompatActivity(), ItemClickListener {
         val repo = Repository()
         viewModel = ViewModelProvider(this, ViewModelFactory(repo)).get(TheViewModel::class.java)
 
+
+
         setViewPager()
         setRecyclerView()
 
     }
 
     private fun setViewPager() {
+
         viewModel.getUpcomingMovie().observe(this, {
             viewPager.adapter = UpcomingAdapter(it as ArrayList<ResultsItem>, this)
             progressBar.visibility = View.GONE
@@ -47,24 +50,29 @@ class MainActivity : AppCompatActivity(), ItemClickListener {
             clipChildren = false
             offscreenPageLimit = 3
         }
+
     }
 
-
     private fun setRecyclerView() {
+
         val popularAdapter = PopularAdapter(this)
         val gridLayout = GridLayoutManager(this, 3)
         recyclerView.apply {
             layoutManager = gridLayout
             adapter = popularAdapter
         }
+        try {
+            viewModel.getPopularMovies().observe(this, Observer {
+                CoroutineScope(Dispatchers.IO).launch {
+                    popularAdapter.submitData(it)
+                    progressBar.visibility = View.GONE
+                }
+            })
+        } catch (e: Exception) {
+        }
 
-        viewModel.getPopularMovies().observe(this, Observer {
-            CoroutineScope(Dispatchers.IO).launch {
-                popularAdapter.submitData(it)
-                progressBar.visibility = View.GONE
-            }
-        })
     }
+
 
     override fun onItemClick(resultsItem: ResultsItem) {
         val intent = Intent(this, DetailedActivity::class.java)

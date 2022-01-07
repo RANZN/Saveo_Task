@@ -3,18 +3,18 @@ package com.ranzan.saveo_task.model.api
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class Network {
+object Network {
 
-    companion object {
-        private const val BASE_URL = "https://api.themoviedb.org/"
+    private const val BASE_URL = "https://api.themoviedb.org/"
 
-        private fun getRetrofitInstance(): Retrofit {
-            return Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
-        }
+    private val retrofit: Retrofit by lazy {
+        Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+    }
 
-        val apiService: ApiService = getRetrofitInstance().create(ApiService::class.java)
+    val apiService: ApiService by lazy {
+        retrofit.create(ApiService::class.java)
     }
 }
