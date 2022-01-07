@@ -9,6 +9,7 @@ import com.ranzan.saveo_task.model.api.Network
 import kotlinx.coroutines.Dispatchers
 
 class Repository {
+
     fun getPopularMovies() = Pager(
         config = PagingConfig(
             pageSize = 20,

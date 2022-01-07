@@ -2,6 +2,7 @@ package com.ranzan.saveo_task.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.ranzan.saveo_task.R
 import com.ranzan.saveo_task.model.api.ResultsItem
@@ -12,6 +13,8 @@ class DetailedActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detailed)
+
+        window.statusBarColor = ContextCompat.getColor(this, R.color.appColor2)
 
         back.setOnClickListener {
             onBackPressed()
@@ -26,7 +29,7 @@ class DetailedActivity : AppCompatActivity() {
                 tvTitle.text = title
                 tvData.text = "${originalLanguage.toString()} | ${releaseDate.toString()}"
                 tvReviews.text = "Vote count: $voteCount"
-                tvRating.text = "  (${voteAverage.toString()})"
+                tvRating.text = "  (${(voteAverage!! / 2)})"
                 ratingBar.rating = (voteAverage!! / 2).toFloat()
                 tvOverview.text = overview
             }

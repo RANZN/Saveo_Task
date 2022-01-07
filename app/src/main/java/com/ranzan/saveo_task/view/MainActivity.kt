@@ -40,7 +40,13 @@ class MainActivity : AppCompatActivity(), ItemClickListener {
         viewModel.getUpcomingMovie().observe(this, {
             viewPager.adapter = UpcomingAdapter(it as ArrayList<ResultsItem>, this)
             progressBar.visibility = View.GONE
+            nowShowing.text = "NOW SHOWING"
         })
+        viewPager.apply {
+            clipToPadding = false
+            clipChildren = false
+            offscreenPageLimit = 3
+        }
     }
 
 
@@ -55,6 +61,7 @@ class MainActivity : AppCompatActivity(), ItemClickListener {
         viewModel.getPopularMovies().observe(this, Observer {
             CoroutineScope(Dispatchers.IO).launch {
                 popularAdapter.submitData(it)
+                progressBar.visibility = View.GONE
             }
         })
     }
